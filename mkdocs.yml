@@ -1,0 +1,10 @@
+site_name: Python app using Podman
+
+nav:
+  - Home: index.md
+  - Setup: setup.md
+  - Create Docker File : create-dockerfile.md
+  - Create Image : create-image.md
+  - Run your App : run-your-app.md
+  - Cleanup : cleanup.md
+theme: readthedocs

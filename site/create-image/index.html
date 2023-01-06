@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Create Image - Python app using Podman</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Create Image";
+        var mkdocs_page_input_path = "create-image.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Python app using Podman
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../setup/">Setup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../create-dockerfile/">Create Docker File</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Create Image</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#check-image-status">Check image status</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../run-your-app/">Run your App</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cleanup/">Cleanup</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Python app using Podman</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Create Image</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="create-image">Create Image</h1>
+<p>We will use <code>podman build</code> command to build the images using <code>DockerFile</code></p>
+<pre><code>PS C:\Users\aniru\workspace\github\python-podman&gt; podman build -t helloworld-python -f .\DockerFile
+STEP 1/6: FROM python:3
+Resolved &quot;python&quot; as an alias (/etc/containers/registries.conf.d/000-shortnames.conf)
+Trying to pull docker.io/library/python:3...
+Getting image source signatures
+Copying blob sha256:fa1d4c8d85a4e064e50cea74d4aa848dc5fc275aef223fcc1f21fbdb1b5dd182
+Copying blob sha256:81283a9569ad5e90773f038daedd0d565810ca5935eec8f53b8bcb6a199030d6
+Copying blob sha256:32de3c850997ce03b6ff4ae8fb00b34b9d7d7f9a35bfcdb8538e22cc7b77c29d
+Copying blob sha256:60b38700e7fb2cdfac79b15e4c1691a80fe6b4101c7b7fea66b9e7cd64d961cf
+Copying blob sha256:c796299bbbddc7aeada9539a4e7874a75fa2b6ff421f8d5ad40f227b40ab4d86
+Copying blob sha256:0f67f32c26d393a2580062f2cebfde80cc4c5a5e264bbb7a32569c6c7551c1c2
+Copying blob sha256:1922a20932d42b7e6dbcad420d9f77ac92bc9eed4a36497944b06abf15dc771e
+Copying blob sha256:47dd72d73dba61b8cd9fcd0d657feba4ff458a3022f5e435e631af31ca63f58b
+Copying blob sha256:25f882f6cd8bb7a08d03f58c8e0ea475c5cb0059801f44fdfb0dd8468075c4d8
+Copying config sha256:75cc8d87cc34bdb26dfcbe6c9e4483d9b483761510b5069852f52bd8431b8012
+Writing manifest to image destination
+Storing signatures
+STEP 2/6: ADD helloworld.py /
+--&gt; dd6bf7aa01b
+STEP 3/6: RUN pip install flask
+Collecting flask
+  Downloading Flask-2.2.2-py3-none-any.whl (101 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 101.5/101.5 kB 1.7 MB/s eta 0:00:00
+Collecting Werkzeug&gt;=2.2.2
+  Downloading Werkzeug-2.2.2-py3-none-any.whl (232 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 232.7/232.7 kB 5.0 MB/s eta 0:00:00
+Collecting Jinja2&gt;=3.0
+  Downloading Jinja2-3.1.2-py3-none-any.whl (133 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.1/133.1 kB 8.8 MB/s eta 0:00:00
+Collecting itsdangerous&gt;=2.0
+  Downloading itsdangerous-2.1.2-py3-none-any.whl (15 kB)
+Collecting click&gt;=8.0
+  Downloading click-8.1.3-py3-none-any.whl (96 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 96.6/96.6 kB 9.4 MB/s eta 0:00:00
+Collecting MarkupSafe&gt;=2.0
+  Downloading MarkupSafe-2.1.1.tar.gz (18 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Building wheels for collected packages: MarkupSafe
+  Building wheel for MarkupSafe (setup.py): started
+  Building wheel for MarkupSafe (setup.py): finished with status 'done'
+  Created wheel for MarkupSafe: filename=MarkupSafe-2.1.1-cp311-cp311-linux_x86_64.whl size=27478 sha256=134d2c399c38a556640a79249b0fec5ac8818ff4e00a7459a2e2aeaf66402147
+  Stored in directory: /root/.cache/pip/wheels/96/ee/62/407c247ad088bcb67b530ba3ac1479058c58a651bd6bf09a1f
+Successfully built MarkupSafe
+Installing collected packages: MarkupSafe, itsdangerous, click, Werkzeug, Jinja2, flask
+Successfully installed Jinja2-3.1.2 MarkupSafe-2.1.1 Werkzeug-2.2.2 click-8.1.3 flask-2.2.2 itsdangerous-2.1.2
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+--&gt; 5bee9c9fb08
+STEP 4/6: RUN pip install flask_restful
+C
+</code></pre>
+<h3 id="check-image-status">Check image status</h3>
+<pre><code>PS C:\Users\aniru\workspace\github\python-podman&gt; podman images
+REPOSITORY                             TAG         IMAGE ID      CREATED         SIZE
+localhost/helloworld-python            latest      aa9bb579340e  11 seconds ago  978 MB
+docker.io/library/python               3           75cc8d87cc34  2 weeks ago     954 MB
+registry.access.redhat.com/ubi8-micro  latest      655e3818c6df  2 months ago    28.5 MB
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../create-dockerfile/" class="btn btn-neutral float-left" title="Create Docker File"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../run-your-app/" class="btn btn-neutral float-right" title="Run your App">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../create-dockerfile/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../run-your-app/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

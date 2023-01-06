@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Setup - Python app using Podman</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Setup";
+        var mkdocs_page_input_path = "setup.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Python app using Podman
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Setup</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#install-podman">Install podman</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#podman-machine-init-process">Podman machine init process</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#podman-machine-start">Podman machine start</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#test-podman">Test podman</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#check-podman-machine-status">Check podman machine status</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../create-dockerfile/">Create Docker File</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../create-image/">Create Image</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../run-your-app/">Run your App</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cleanup/">Cleanup</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Python app using Podman</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Setup</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="initial-setup">Initial setup</h1>
+<p>Describe all steps </p>
+<h3 id="install-podman">Install podman</h3>
+<p>Follow installation instructions at <a href="https://github.com/containers/podman/blob/main/docs/tutorials/podman-for-windows.md">Podman for Windows</a></p>
+<h3 id="podman-machine-init-process">Podman machine init process</h3>
+<pre><code>PS C:\Users\aniru&gt; podman machine init
+Extracting compressed file
+Importing operating system into WSL (this may take a few minutes on a new WSL install)...
+Configuring system...
+Generating public/private ed25519 key pair.
+Your identification has been saved in podman-machine-default
+Your public key has been saved in podman-machine-default.pub
+The key fingerprint is:
+Machine init complete
+To start your machine run:
+
+        podman machine start
+</code></pre>
+<h3 id="podman-machine-start">Podman machine start</h3>
+<pre><code>PS C:\Users\aniru&gt; podman machine start
+Starting machine &quot;podman-machine-default&quot;
+
+This machine is currently configured in rootless mode. If your containers
+require root permissions (e.g. ports &lt; 1024), or if you run into compatibility
+issues with non-podman clients, you can switch using the following command:
+
+        podman machine set --rootful
+
+API forwarding listening on: npipe:////./pipe/podman-machine-default
+
+Another process was listening on the default Docker API pipe address.
+You can still connect Docker API clients by setting DOCKER HOST using the
+following powershell command in your terminal session:
+
+        $Env:DOCKER_HOST = 'npipe:////./pipe/podman-machine-default'
+
+Or in a classic CMD prompt:
+
+        set DOCKER_HOST = 'npipe:////./pipe/podman-machine-default'
+
+Alternatively terminate the other process and restart podman machine.
+Machine &quot;podman-machine-default&quot; started successfully
+</code></pre>
+<h3 id="test-podman">Test podman</h3>
+<p>We test podman installation by running a micro image from redhat that runs the <code>date</code> command</p>
+<pre><code>PS C:\Users\aniru&gt; podman run ubi8-micro date
+Resolved &quot;ubi8-micro&quot; as an alias (/etc/containers/registries.conf.d/000-shortnames.conf)
+Trying to pull registry.access.redhat.com/ubi8-micro:latest...
+Getting image source signatures
+Check`ing if image destination supports signatures
+Copying blob sha256:fdb82fb306d5fe8a181e0c0703110bd192c0bbb8ab32a727d4e268f22a3e3262
+Copying config sha256:655e3818c6df1519b648e932994e941985699873946fd12ac8ff250dfca2d6bf
+Writing manifest to image destination
+Storing signatures
+Fri Jan  6 03:01:52 UTC 2023
+</code></pre>
+<h3 id="check-podman-machine-status">Check podman machine status</h3>
+<pre><code>PS C:\Users\aniru\workspace\github\python-podman&gt; podman machine ls
+NAME                     VM TYPE     CREATED      LAST UP            CPUS        MEMORY      DISK SIZE
+podman-machine-default*  wsl         6 hours ago  Currently running  8           920.3MB     1.542GB
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../create-dockerfile/" class="btn btn-neutral float-right" title="Create Docker File">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../create-dockerfile/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
