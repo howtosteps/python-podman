@@ -12,7 +12,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Home";
+        var mkdocs_page_name = "Introduction";
         var mkdocs_page_input_path = "index.md";
         var mkdocs_page_url = null;
       </script>
@@ -41,19 +41,21 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href=".">Introduction</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a>
+    <li class="toctree-l2"><a class="reference internal" href="#application-components">Application components</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#credits">Credits</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#project-layout">Project layout</a>
+    <li class="toctree-l2"><a class="reference internal" href="#application-structure">Application structure</a>
     </li>
     </ul>
                 </li>
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="setup/">Setup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="create-web-app/">Create Web App</a>
                 </li>
               </ul>
               <ul>
@@ -86,7 +88,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-      <li>Home</li>
+      <li>Introduction</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -95,22 +97,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<h2 id="credits">Credits</h2>
-<p><a href="https://developers.redhat.com/articles/csharp-container#parts_for_building">Build Your "Hello World" Container Using Python</a></p>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
+                <h1 id="introduction">Introduction</h1>
+<p>This is a starter tutorial on how to use podman to generate a container image and then run the container.  </p>
+<h2 id="application-components">Application components</h2>
+<p>This application primarily consists of 2 parts - hello world web app file and a dockerfile. This start-up project will demonstrate how to setup podman on your localhost, build a container image and then run the container in detached mode. </p>
+<h2 id="application-structure">Application structure</h2>
+<pre><code>  |── docs                      # Contains edited nginx configuration file that will be copied to the image
+  |    ├── img                  # Contains all images referenced in mkdocs
+  |    ├── *.md                 # Other mkdocs .md files
+  ├── mkdocs.yml                # YAML for for mkdocs
+  ├── .gitattributes
+  |
+  ├── Dockerfile                # Dockerfile for the web-app
+  ├── helloworld.py             # Simple hello world python program using Flask API
+  ├── README.md                 # Standard README.md file
 </code></pre>
               
             </div>
@@ -159,5 +159,5 @@ docs/
 
 <!--
 MkDocs version : 1.4.2
-Build Date UTC : 2023-01-06 05:32:13.829287+00:00
+Build Date UTC : 2023-02-23 12:12:52.082378+00:00
 -->

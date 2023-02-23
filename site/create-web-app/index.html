@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Cleanup - Python app using Podman</title>
+    <title>Create Web App - Python app using Podman</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Cleanup";
-        var mkdocs_page_input_path = "cleanup.md";
+        var mkdocs_page_name = "Create Web App";
+        var mkdocs_page_input_path = "create-web-app.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -48,8 +48,10 @@
                 <li class="toctree-l1"><a class="reference internal" href="../setup/">Setup</a>
                 </li>
               </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../create-web-app/">Create Web App</a>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Create Web App</a>
+    <ul class="current">
+    </ul>
                 </li>
               </ul>
               <ul>
@@ -64,16 +66,8 @@
                 <li class="toctree-l1"><a class="reference internal" href="../run-your-app/">Run your App</a>
                 </li>
               </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">Cleanup</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#stop-the-container">Stop the container</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#remove-the-container">Remove the container</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#_1"></a>
-    </li>
-    </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cleanup/">Cleanup</a>
                 </li>
               </ul>
       </div>
@@ -90,7 +84,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-      <li>Cleanup</li>
+      <li>Create Web App</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -99,30 +93,30 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="cleanup">Cleanup</h1>
-<h3 id="stop-the-container">Stop the container</h3>
-<p>Stop the container using <code>podman stop &lt;ContainerID&gt;</code> command</p>
-<pre><code>PS C:\Users\aniru\workspace\github\python-podman&gt; podman stop 3bad5052037c
-3bad5052037c
-</code></pre>
-<h3 id="remove-the-container">Remove the container</h3>
-<p>To delete a Podman container, first make sure that the container has been stopped. Then, use the <code>podman rm</code> command followed by the container's name or ID.</p>
-<pre><code>
-</code></pre>
-<h3 id="_1"></h3>
-<p>To stop a running podman machine, use the <code>podman machine stop</code> command. </p>
-<pre><code>PS C:\Users\aniru\workspace\github\python-podman&gt; podman machine stop
-Machine &quot;podman-machine-default&quot; stopped successfully
-PS C:\Users\aniru\workspace\github\python-podman&gt; podman machine ls
-NAME                     VM TYPE     CREATED      LAST UP             CPUS        MEMORY      DISK SIZE
-podman-machine-default*  wsl         6 hours ago  About a minute ago  0           0B          1.777GB
-PS C:\Users\aniru\workspace\github\python-podman&gt;
+                <h1 id="create-web-app">Create Web App</h1>
+<p>Here we will create the web-app file that is written in python and uses Flask API. </p>
+<p>Create file <code>helloworld.py</code> and copy the following content in there : </p>
+<pre><code>from flask import Flask, request
+from flask_restful import Resource, Api
+
+app = Flask(__name__)
+api = Api(app)
+
+class Greeting (Resource):
+    def get(self):
+        return 'Hello World!'
+
+api.add_resource(Greeting, '/') # Route_1
+
+if __name__ == '__main__':
+    app.run('0.0.0.0','3333')
 </code></pre>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../run-your-app/" class="btn btn-neutral float-left" title="Run your App"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../setup/" class="btn btn-neutral float-left" title="Setup"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../create-dockerfile/" class="btn btn-neutral float-right" title="Create Docker File">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -145,8 +139,10 @@ PS C:\Users\aniru\workspace\github\python-podman&gt;
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../run-your-app/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../setup/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
+    
+      <span><a href="../create-dockerfile/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

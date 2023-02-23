@@ -1,5 +1,5 @@
 # Initial setup 
-Describe all steps 
+This section describes steps to install and verify podman on your localhost. 
 
 ### Install podman
 Follow installation instructions at [Podman for Windows](https://github.com/containers/podman/blob/main/docs/tutorials/podman-for-windows.md)
