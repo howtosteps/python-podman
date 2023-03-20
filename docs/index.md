@@ -1,6 +1,6 @@
 # Introduction
 
-This is a starter tutorial on how to use podman to generate a container image and then run the container.  
+This is a starter tutorial on how to use podman to generate a container image and then run the container. 
 
 ## Application components
 This application primarily consists of 2 parts - hello world web app file and a dockerfile. This start-up project will demonstrate how to setup podman on your localhost, build a container image and then run the container in detached mode. 
